@@ -115,5 +115,8 @@
     "url": "https://github.com/beakerbrowser/beaker/issues"
   },
   "homepage": "https://beakerbrowser.com/",
-  "dependencies": {}
+  "dependencies": {
+    "electron-updater": "^5.0.0",
+    "fs-extra": "^10.1.0"
+  }
 }
