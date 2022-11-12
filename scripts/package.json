@@ -118,6 +118,7 @@
   "dependencies": {
     "electron-updater": "^5.0.0",
     "fs-extra": "^10.1.0",
-    "fs.promises": "^0.1.2"
+    "fs.promises": "^0.1.2",
+    "sqlite3": "^5.1.2"
   }
 }
