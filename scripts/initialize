@@ -146,9 +146,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 function rebuild(){
 
-npm uninstall electron sqlite
-npm install --save -D  electron@13.0.0
-#npm install sqlite3@4.2.0
+npm uninstall sqlite
 npm install sqlite3@5
 
 }
@@ -158,16 +156,10 @@ function npm-installs(){
 node -v
 npm -v
 
-npm install -D gulp-cli
-npm install -g -D gulp@4.0.2
-npm install -g npm-lifecycle
-npm install -g node-gyp
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
 echo
 fi
 
-rebuild
 pushd ../app && rebuild && popd
 
 }
