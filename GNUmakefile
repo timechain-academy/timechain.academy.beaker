@@ -90,6 +90,9 @@ rebuild:
 ##	:	burnthemall - hard reset and build
 burnthemall:
 	@cd ./scripts && npm run burnthemall
+##	:	release - build distribution
+release:
+	@cd ./scripts && npm run release
 
 ##	:	help
 help:
