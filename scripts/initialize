@@ -144,104 +144,33 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
+function rebuild(){
+
+npm uninstall electron sqlite
+npm install --save -D  electron@13.0.0
+#npm install sqlite3@4.2.0
+npm install sqlite3@5
+
+}
+
 function npm-installs(){
 
 node -v
 npm -v
 
-# nvm alias 14 12
-#npm install gulp
-#npm install -g --default --force gulp
-#npm install -g npm-lifecycle node-gyp
-
-#npm install -g fs
-#npm install -g fs/promises
-#npm install -g --default https://github.com/timechain-academy/fs.promises.git && cd ..
-#nvm alias fs.promises fs
-#cd node_modules &&  ln -s fs.promises/ fs-promises && cd ..
-#npm install -g fs.promises
-#npm install -g https://github.com/timechain-academy/fs-xattr.git
-#npm install -g fs-xattr
-#npm install -g fs-xattr@0.1
-#npm install -g fs-xattr@0.2
-#npm install -g fs-xattr@0.3
-#npm install -g --default https://github.com/timechain-academy/fs-xattr.git
-#npm install -g --default fs-xattr@0.1.17
-#nvm alias fs-xattr@0.1.17 fs-xattr@0.4.0
-
-
+npm install -D gulp-cli
+npm install -g -D gulp@4.0.2
+npm install -g npm-lifecycle
+npm install -g node-gyp
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-echo "fsevent installed globally on macos!! NOT in package.json!!!"
-#	npm install -g --default fsevents@2.3.2
-#	npm install -g                          https://github.com/timechain-academy/node-appdmg#dda1cc89d9ce9b00cec76ee9399772b0d5d4ecd3
-	#nvm alias fsevents@2.3.2 fsevents@1.2.13
+echo
 fi
 
-
-
-#npm install -s --default electron@11.0.0-beta.18
-#npm install electron@13.0.0
-#nvm alias @electron/asar asar@3.2.0 
-
-#npm install -g @mapbox/node-pre-gyp
-
-#npm install -g electron-builder
-#npm install -g electron-builder@19
-#npm install -g electron-builder@20
-#npm install -g electron-builder@21
-#npm install -g electron-builder@22
-#npm install -g electron-builder@23
-##npm install -g app-builder-lib@20.44.4
-#npm install -g app-builder-lib
-
-
-#npm install -g --default knex
-#npm install -g knex@0.21.0
-#npm install -g --default --legacy-peer-deps knex-on-conflict-do-nothing@1.0.0
-#npm install -g --default --force knex@0.21.0
-#npm install -g --default --force knex-on-conflict-do-nothing@1.0.0
-
-#npm install -g sqlite3
-#npm install -g sqlite3@4
-npm install sqlite3@4.1.0
-#npm install -g --default sqlite3@5.0.0
-#npm install -g sqlite3@5.1.2
-
-#npm install -g --default fs
-#npm install -g fs/promises
-#npm install -g fs.promises
-#npm install -g https://github.com/timechain-academy/fs-xattr.git
-#npm install -g fs-xattr
-#npm install -g fs-xattr@0.1
-#npm install -g fs-xattr@0.2
-#npm install -g fs-xattr@0.3
-#npm install -g fs-xattr@0.4.0
-#nvm alias fs-xattr@0.1.17 fs-xattr@0.3.0
-#nvm alias fs-xattr@0.1.17 fs-xattr@0.4.0
-#npm clean-install -g fs-xattr@0.1.17 fsevents@2.3.2
-
-#install ./node_modules/fs-xattr node_modules/appdmg/node_modules/
-
-#npm install -g cross-spawn
-#npm install -g cross-spawn-async
-#npm install -g cross-spawn-async@1
-#npm install -g cross-spawn-async@2
-#npm install -g cross-spawn-async@2.1
-#npm install -g cross-spawn-async@2.2.5
-#nvm alias c-g ross-spawn cross-spawn-async@2.2.5
+rebuild
+pushd ../app && rebuild && popd
 
 }
 
-function build-sequence(){
-
-npm rebuild
-
-}
-
-#nvm environment config
 nvm install 14 && nvm use 14
-#nvm --default install-latest-npm
-
-#npm install -g --default --force gulp-cli
 npm-installs

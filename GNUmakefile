@@ -86,6 +86,10 @@ start:
 	@cd ./scripts && npm run-script start
 ##	:	rebuild
 rebuild:
+	@rm -rf $(find . -name package-lock.json)
+	@rm -rf $(find . -name node_modules)
+	@rm -rf ./scripts/node_modules/electron
+	@cd ./scripts && npm install electron@13.0.0
 	@cd ./scripts && npm run-script rebuild
 ##	:	burnthemall - hard reset and build
 burnthemall:
@@ -168,8 +172,7 @@ node:
 
 clean: clean-all
 clean-all:
-	rm -rf ./node_modules/
-	rm -rf ./scripts/node_modules/
+	rm -rf $(find . -name node_modules)
 
 -include node.mk
 # vim: set noexpandtab:
