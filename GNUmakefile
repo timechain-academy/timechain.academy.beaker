@@ -109,9 +109,9 @@ help:
 	@echo ""
 	@echo "Useful Commands:"
 	@echo ""
-	@echo "gpg --output public.pgp --armor --export FINGERPRINT"
-	@echo "source ~/.bashrc"
-	@echo "source ~/.bash_profile"
+	@echo "make install init build"
+	@echo "make start"
+	@echo "make release"
 	@echo ""
 	@echo ""
 
@@ -158,7 +158,9 @@ nvm: executable
 
 .PHONY: all
 ##	:	all			execute installer scripts
-all:- executable init 
+all:- executable install init build
+	@echo "make release"
+	@echo "make start"
 
 .PHONY: submodule submodules
 submodule: submodules
