@@ -1,5 +1,5 @@
 {
-  "name": "beakerbrowser",
+  "name": "timechain.academy",
   "devDependencies": {
     "browserify": "^16.0.0",
     "electron": "11.0.0-beta.18",
