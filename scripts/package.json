@@ -114,6 +114,6 @@
   "bugs": {
     "url": "https://github.com/timechain-academy/timechain.academy/issues"
   },
-  "dependencies": {}
   "homepage": "https://timechain.academy/",
+  "dependencies": {}
 }
