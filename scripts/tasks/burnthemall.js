@@ -13,8 +13,8 @@ function main () {
   if (!isWindows) projectDir = path.sep + projectDir
   var appDir = path.join(projectDir, 'app')
   var scriptsDir = path.join(projectDir, 'scripts')
-  rmNodeModules(scriptsDir)
-  rmNodeModules(appDir)
+  // rmNodeModules(scriptsDir)
+  // rmNodeModules(appDir)
   rmPackageLock(scriptsDir)
   rmPackageLock(appDir)
   run('npm install', {shell: true}, function () {
