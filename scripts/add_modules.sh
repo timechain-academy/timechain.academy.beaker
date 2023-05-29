@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
+## git rm -rf node_modules/electron/dist/* || echo
+install  ./add_modules.sh ../app/
+install  ./add_modules.sh ../app/bg/dat/converter/
+
+git add ./add_modules.sh
+git add ../app/add_modules.sh
+git add ../app/bg/dat/converter/add_modules.sh
 
 loop (){
-
-git rm -rf node_modules/electron/dist/* || echo
-
 for d in */ ; do
     [ -L "${d%/}" ] && continue
     echo "$d"
-	## [ "$d" == "node_modules" ] && pushd $d && loop
-	git add -f "$d" && git reset **.DS_Store && git commit -m "$d" -m "$(date +%s)" --allow-empty
+	git add -f "$d" && git reset **.DS_Store && git commit -m "$d:$(date +%s)" --allow-empty
 done
-## popd
 }
+
 loop
+echo "pushd ../app && ./add_modules.sh && popd"
+echo "pushd ../app/bg/dat/converter && ./add_modules.sh && popd"
