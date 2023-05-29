@@ -2,7 +2,7 @@
   "name": "timechain.academy",
   "devDependencies": {
     "browserify": "^16.0.0",
-    "electron": "11.0.0-beta.18",
+    "electron": "^13.0.0",
     "electron-builder": "^22.6.0",
     "electron-notarize": "^0.3.0",
     "eslint": "^4.5.0",
@@ -114,6 +114,5 @@
   "bugs": {
     "url": "https://github.com/timechain-academy/timechain.academy/issues"
   },
-  "homepage": "https://timechain.academy/",
-  "dependencies": {}
+  "homepage": "https://timechain.academy/"
 }
