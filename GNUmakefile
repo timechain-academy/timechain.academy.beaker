@@ -154,7 +154,7 @@ exec: executable
 .ONESHELL:
 nvm: ## 	nvm
 	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install v14.21.3 && nvm use v14.21.3
-	@source ~/.bashrc && nvm alias $(NODE_ALIAS) v14.21.3
+	@source ~/.bashrc && nvm alias $(NODE_ALIAS) v12.18.3
 
 .PHONY: all
 ##	:	all			execute installer scripts
