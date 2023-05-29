@@ -176,41 +176,41 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 .SILENT:
 ##	:
 
--: help
+-: help## 	
 
 ##	:	init
-init:
+init:## 	
 #	@["$(shell $(SHELL))" == "/bin/zsh"] && zsh --emulate sh
 	@cd ./scripts && ./initialize
 
 .PHONY:install
 ##	:	install - ./scripts npm install
-install:
+install:## 	
 	@cd ./scripts && npm install
 .PHONY:build
 ##	:	build
-build:
-	@cd ./scripts && npm run-script build
+build:## 	
+	@cd ./scripts && npm run build
 .PHONY:start
 ##	:	start
-start:
-	@cd ./scripts && npm run-script start
+start:## 	
+	@cd ./scripts && npm run start
 ##	:	rebuild
-rebuild:
+rebuild:## 	
 	@rm -rf $(find . -name package-lock.json)
 	@rm -rf $(find . -name node_modules)
 	@rm -rf ./scripts/node_modules/electron
 	@cd ./scripts && npm install electron@13.0.0
-	@cd ./scripts && npm run-script rebuild
+	@cd ./scripts && npm run rebuild
 ##	:	burnthemall - hard reset and build
-burnthemall:
+burnthemall:## 	
 	@cd ./scripts && npm run burnthemall
 ##	:	release - build distribution
-release:
+release:## 	
 	@cd ./scripts && npm run release
 
 ##	:	help
-help:
+help:## 	
 	@echo ''
 	@sed -n 's/^##ARGS//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 	# @sed -n 's/^.PHONY//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
@@ -227,7 +227,7 @@ help:
 	@echo ""
 
 ##	:	report			environment args
-report:
+report:## 	
 	@echo ''
 	@echo ' TIME=${TIME}	'
 	@echo ' CURRENT_PATH=${CURRENT_PATH}	'
@@ -251,43 +251,44 @@ report:
 
 .PHONY: command
 ##	:	command		 	command sequence
-command: executable
+command: executable## 	
 	@echo "command sequence here..."
 
 .PHONY: executable
-executable:
+executable:## 	
 	chmod +x ./scripts/initialize
 .PHONY: exec
 ##	:	executable		make shell scripts executable
-exec: executable
+exec: executable## 	
 
 .PHONY: nvm
-.ONESHELL:
 nvm: ## 	nvm
-	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install v14.21.3 && nvm use v14.21.3
-	@source ~/.bashrc && nvm alias $(NODE_ALIAS) v12.18.3
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"
+	source ~/.bashrc && nvm install v12.18.3 && nvm use v12.18.3
+	##@source ~/.bashrc && nvm install v14.21.3 && nvm use v14.21.3
+	##@source ~/.bashrc && nvm alias v14.21.3 v12.18.3
 
 .PHONY: all
 ##	:	all			execute installer scripts
-all:- executable install init build
+all:- executable install init build## 	
 	@echo "make release"
 	@echo "make start"
 
 .PHONY: submodule submodules
-submodule: submodules
-submodules:
+submodule: submodules## 	
+submodules:## 	
 	git submodule update --init --recursive
 	git submodule foreach 'git fetch origin; git checkout $$(git rev-parse --abbrev-ref HEAD); git reset --hard origin/$$(git rev-parse --abbrev-ref HEAD); git submodule update --recursive; git clean -dfx'
 
 .PHONY: node
-node:
+node:## 	
 	$(MAKE) -f node.mk
 
 .PHONY: failure
-failure:
+failure:## 	
 	@-/usr/bin/false && ([ $$? -eq 0 ] && echo "success!") || echo "failure!"
 .PHONY: success
-success:
+success:## 	
 	@-/usr/bin/true && ([ $$? -eq 0 ] && echo "success!") || echo "failure!"
 
 -include node.mk
